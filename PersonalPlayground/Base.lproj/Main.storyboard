@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -59,7 +60,18 @@
                     <view key="view" contentMode="scaleToFill" id="OVk-vK-VhX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lv4-ac-l3X">
+                                <rect key="frame" x="16" y="72" width="288" height="476"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Lv4-ac-l3X" firstAttribute="top" secondItem="6tp-nW-8Wg" secondAttribute="bottom" constant="8" id="Naq-nN-M2o"/>
+                            <constraint firstItem="Lv4-ac-l3X" firstAttribute="trailing" secondItem="OVk-vK-VhX" secondAttribute="trailingMargin" id="QmM-Oj-tbf"/>
+                            <constraint firstItem="Lv4-ac-l3X" firstAttribute="leading" secondItem="OVk-vK-VhX" secondAttribute="leadingMargin" id="qXR-sN-Obn"/>
+                            <constraint firstItem="cF6-Nd-Hcd" firstAttribute="top" secondItem="Lv4-ac-l3X" secondAttribute="bottom" constant="20" id="teP-Z0-I9j"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gy1-Cq-k0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
