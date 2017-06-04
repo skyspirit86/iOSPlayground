@@ -15,6 +15,7 @@
 		330A35071EE4A78E0020011A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330A35051EE4A78E0020011A /* LaunchScreen.storyboard */; };
 		330A35121EE4A78E0020011A /* PersonalPlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 330A35111EE4A78E0020011A /* PersonalPlaygroundTests.m */; };
 		330A351D1EE4A78E0020011A /* PersonalPlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 330A351C1EE4A78E0020011A /* PersonalPlaygroundUITests.m */; };
+		330A352C1EE4B0F20020011A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330A352B1EE4B0F20020011A /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		330A35181EE4A78E0020011A /* PersonalPlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonalPlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		330A351C1EE4A78E0020011A /* PersonalPlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalPlaygroundUITests.m; sourceTree = "<group>"; };
 		330A351E1EE4A78E0020011A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		330A352A1EE4B0F20020011A /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		330A352B1EE4B0F20020011A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				330A34FD1EE4A78E0020011A /* ViewController.h */,
 				330A34FE1EE4A78E0020011A /* ViewController.m */,
 				330A35001EE4A78E0020011A /* Main.storyboard */,
+				330A352A1EE4B0F20020011A /* MapViewController.h */,
+				330A352B1EE4B0F20020011A /* MapViewController.m */,
 				330A35031EE4A78E0020011A /* Assets.xcassets */,
 				330A35051EE4A78E0020011A /* LaunchScreen.storyboard */,
 				330A35081EE4A78E0020011A /* Info.plist */,
@@ -276,6 +281,7 @@
 				330A34FF1EE4A78E0020011A /* ViewController.m in Sources */,
 				330A34FC1EE4A78E0020011A /* AppDelegate.m in Sources */,
 				330A34F91EE4A78E0020011A /* main.m in Sources */,
+				330A352C1EE4B0F20020011A /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
