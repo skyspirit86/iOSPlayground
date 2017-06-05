@@ -18,6 +18,7 @@
 		330A352C1EE4B0F20020011A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330A352B1EE4B0F20020011A /* MapViewController.m */; };
 		330A352F1EE4C3EB0020011A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330A352E1EE4C3EB0020011A /* CoreLocation.framework */; };
 		330A35311EE4C3F20020011A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330A35301EE4C3F20020011A /* MapKit.framework */; };
+		330A35341EE5D2600020011A /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330A35331EE5D2600020011A /* MyTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		330A352B1EE4B0F20020011A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		330A352E1EE4C3EB0020011A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		330A35301EE4C3F20020011A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		330A35321EE5D2600020011A /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
+		330A35331EE5D2600020011A /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				330A34FD1EE4A78E0020011A /* ViewController.h */,
 				330A34FE1EE4A78E0020011A /* ViewController.m */,
 				330A35001EE4A78E0020011A /* Main.storyboard */,
+				330A35321EE5D2600020011A /* MyTableViewController.h */,
+				330A35331EE5D2600020011A /* MyTableViewController.m */,
 				330A352A1EE4B0F20020011A /* MapViewController.h */,
 				330A352B1EE4B0F20020011A /* MapViewController.m */,
 				330A35031EE4A78E0020011A /* Assets.xcassets */,
@@ -295,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				330A34FF1EE4A78E0020011A /* ViewController.m in Sources */,
+				330A35341EE5D2600020011A /* MyTableViewController.m in Sources */,
 				330A34FC1EE4A78E0020011A /* AppDelegate.m in Sources */,
 				330A34F91EE4A78E0020011A /* main.m in Sources */,
 				330A352C1EE4B0F20020011A /* MapViewController.m in Sources */,

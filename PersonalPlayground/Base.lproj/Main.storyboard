@@ -28,11 +28,11 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="YCH-gQ-9rs"/>
                                 </constraints>
-                                <state key="normal" title="Map">
+                                <state key="normal" title="Map View">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gmT-RG-4K4" kind="show" id="770-kJ-1YY"/>
+                                    <segue destination="gmT-RG-4K4" kind="show" id="t1N-Ui-s5i"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phv-Vx-XMU">
@@ -41,7 +41,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="iQw-gL-UJu"/>
                                 </constraints>
-                                <state key="normal" title="TableView">
+                                <state key="normal" title="Table View">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="1113.75" y="123.59154929577466"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="7dg-Uc-FQ2">
             <objects>
-                <viewController id="gmT-RG-4K4" sceneMemberID="viewController">
+                <viewController id="gmT-RG-4K4" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6tp-nW-8Wg"/>
                         <viewControllerLayoutGuide type="bottom" id="cF6-Nd-Hcd"/>
@@ -83,6 +83,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lv4-ac-l3X">
                                 <rect key="frame" x="16" y="72" width="288" height="476"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gmT-RG-4K4" id="lkp-Xr-JSK"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,15 +96,18 @@
                             <constraint firstItem="cF6-Nd-Hcd" firstAttribute="top" secondItem="Lv4-ac-l3X" secondAttribute="bottom" constant="20" id="teP-Z0-I9j"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="Lv4-ac-l3X" id="HjE-dJ-UoH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gy1-Cq-k0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2004.375" y="123.59154929577466"/>
         </scene>
-        <!--Table View Controller-->
+        <!--My Table View Controller-->
         <scene sceneID="9Y3-2W-Who">
             <objects>
-                <tableViewController id="N7g-rB-Lig" sceneMemberID="viewController">
+                <tableViewController id="N7g-rB-Lig" customClass="MyTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4uY-sr-2DD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

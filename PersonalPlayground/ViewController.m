@@ -19,6 +19,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     // test commit
     
+    self.navigationItem.title = @"Home";
+    
 }
 
 

@@ -13,15 +13,25 @@
 @end
 
 @implementation MapViewController
+@synthesize mapView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.mapView.delegate = self;
     // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = @"Map View";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
 }
 
 /*
