@@ -24,6 +24,16 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.navigationItem.title = @"Table View";
+    self.tableData = @[@"Item1",
+                       @"Item2",
+                       @"Item3",
+                       @"Item4",
+                       @"Item5",
+                       @"Item6",
+                       @"Item7",
+                       @"Item8",
+                       @"Item9",
+                       @"Item10"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,26 +42,35 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+// #warning Incomplete implementation, return the number of sections
+    return 1;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+// #warning Incomplete implementation, return the number of rows
+    return [self.tableData count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
     // Configure the cell...
+    NSString *cellId = @"cellId";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+    }
+    
+    cell.textLabel.text = self.tableData[indexPath.row];
+    cell.detailTextLabel.text = @"krco";
+    cell.imageView.image = [UIImage imageNamed:@"bg_test"];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

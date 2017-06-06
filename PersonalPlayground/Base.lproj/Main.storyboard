@@ -90,10 +90,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Lv4-ac-l3X" firstAttribute="top" secondItem="6tp-nW-8Wg" secondAttribute="bottom" constant="8" id="Naq-nN-M2o"/>
-                            <constraint firstItem="Lv4-ac-l3X" firstAttribute="trailing" secondItem="OVk-vK-VhX" secondAttribute="trailingMargin" id="QmM-Oj-tbf"/>
-                            <constraint firstItem="Lv4-ac-l3X" firstAttribute="leading" secondItem="OVk-vK-VhX" secondAttribute="leadingMargin" id="qXR-sN-Obn"/>
-                            <constraint firstItem="cF6-Nd-Hcd" firstAttribute="top" secondItem="Lv4-ac-l3X" secondAttribute="bottom" constant="20" id="teP-Z0-I9j"/>
+                            <constraint firstItem="cF6-Nd-Hcd" firstAttribute="top" secondItem="Lv4-ac-l3X" secondAttribute="bottom" constant="20" id="10w-me-2R3"/>
+                            <constraint firstItem="Lv4-ac-l3X" firstAttribute="top" secondItem="6tp-nW-8Wg" secondAttribute="bottom" constant="8" id="RcH-4v-4hw"/>
+                            <constraint firstItem="Lv4-ac-l3X" firstAttribute="leading" secondItem="OVk-vK-VhX" secondAttribute="leadingMargin" id="blI-X9-2d3"/>
+                            <constraint firstItem="Lv4-ac-l3X" firstAttribute="trailing" secondItem="OVk-vK-VhX" secondAttribute="trailingMargin" id="cBR-6L-gGp"/>
                         </constraints>
                     </view>
                     <connections>
@@ -112,20 +112,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hHE-o5-tCB">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hHE-o5-tCB" id="u1d-fA-Z18">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="N7g-rB-Lig" id="NPs-zo-VLT"/>
-                            <outlet property="delegate" destination="N7g-rB-Lig" id="uAD-hk-doO"/>
+                            <outlet property="dataSource" destination="N7g-rB-Lig" id="EES-WF-mWp"/>
+                            <outlet property="delegate" destination="N7g-rB-Lig" id="VbO-Wv-Uuh"/>
                         </connections>
                     </tableView>
                 </tableViewController>
