@@ -7,6 +7,7 @@
 //
 
 #import "MyTableViewController.h"
+#import "CustomTableViewCell.h"
 
 @interface MyTableViewController ()
 
@@ -34,11 +35,6 @@
                        @"Item8",
                        @"Item9",
                        @"Item10"];
-    // bitbucket test
-    // local commit
-    // local commit 2
-    // local commit 3
-    // local commit 4
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,30 +44,35 @@
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-// #warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-// #warning Incomplete implementation, return the number of rows
     return [self.tableData count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Configure the cell...
-    NSString *cellId = @"cellId";
+    static NSString *cellId = @"customCellId";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
+        cell = [[CustomTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
+//    built in table cell
+//    cell.textLabel.text = self.tableData[indexPath.row];
+//    cell.detailTextLabel.text = @"krco";
+//    cell.imageView.image = [UIImage imageNamed:@"bg_test"];
     
-    cell.textLabel.text = self.tableData[indexPath.row];
-    cell.detailTextLabel.text = @"krco";
-    cell.imageView.image = [UIImage imageNamed:@"bg_test"];
+    cell.nameLabel.text = self.tableData[indexPath.row];
+    cell.lastNameLabel.text = @"Zolt";
+    cell.emailLabel.text = @"skyspirit86@gmail.com";
+    cell.profileImage.image = [UIImage imageNamed:@"bg_test"];
+    cell.idLabel.text = @"12345";
     
     return cell;
 }
