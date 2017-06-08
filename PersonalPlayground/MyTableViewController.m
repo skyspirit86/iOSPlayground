@@ -35,6 +35,39 @@
                        @"Item8",
                        @"Item9",
                        @"Item10"];
+    
+    // REST API endpoint
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"https://jsonplaceholder.typicode.com/users"]];
+    
+    NSURLSessionDataTask *task = [[self getURLSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        // my code
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            // json parsing from endpoint
+            // NSString *result = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+            
+            NSError *jsonError;
+            NSArray *parsedJSONArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+            
+            // NSLog(@"KRCO: %@", data);
+            // NSLog(@"KRCO: %@", result);
+            // NSLog(@"KRCO: %@", parsedJSONArray);
+            NSLog(@"KRCO: %@", [parsedJSONArray valueForKey:@"email"]);
+        });
+    }];
+    [task resume];
+}
+
+-(NSURLSession*) getURLSession {
+    static NSURLSession *session = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        session = [NSURLSession sessionWithConfiguration:configuration];
+    });
+    return session;
 }
 
 - (void)didReceiveMemoryWarning {
