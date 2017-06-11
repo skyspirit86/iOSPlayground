@@ -7,9 +7,8 @@
 //
 
 #import "MyTableViewController.h"
-#import "CustomTableViewCell.h"
 
-@interface MyTableViewController ()
+@interface MyTableViewController () 
 
 @end
 
@@ -25,50 +24,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.navigationItem.title = @"Table View";
-    self.tableData = @[@"Item1",
-                       @"Item2",
-                       @"Item3",
-                       @"Item4",
-                       @"Item5",
-                       @"Item6",
-                       @"Item7",
-                       @"Item8",
-                       @"Item9",
-                       @"Item10"];
     
-    // REST API endpoint
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"https://jsonplaceholder.typicode.com/users"]];
-    
-    NSURLSessionDataTask *task = [[self getURLSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        // my code
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            // json parsing from endpoint
-            // NSString *result = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-            
-            NSError *jsonError;
-            NSArray *parsedJSONArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
-            
-            // NSLog(@"KRCO: %@", data);
-            // NSLog(@"KRCO: %@", result);
-            // NSLog(@"KRCO: %@", parsedJSONArray);
-            NSLog(@"KRCO: %@", [parsedJSONArray valueForKey:@"email"]);
-        });
-    }];
-    [task resume];
+    // load data
+    [self retrieveData];
 }
 
--(NSURLSession*) getURLSession {
-    static NSURLSession *session = nil;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        session = [NSURLSession sessionWithConfiguration:configuration];
-    });
-    return session;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -82,7 +42,8 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.tableData count];
+    return [self.sourcesArray count];
+    //return 3;
 }
 
 
@@ -101,17 +62,20 @@
 //    cell.detailTextLabel.text = @"krco";
 //    cell.imageView.image = [UIImage imageNamed:@"bg_test"];
     
-    cell.nameLabel.text = self.tableData[indexPath.row];
-    cell.lastNameLabel.text = @"Zolt";
-    cell.emailLabel.text = @"skyspirit86@gmail.com";
-    cell.profileImage.image = [UIImage imageNamed:@"bg_test"];
-    cell.idLabel.text = @"12345";
+    SourcesData *currentSourceData = [self.sourcesArray objectAtIndex:indexPath.row];
+    
+    cell.nameLabel.text = currentSourceData.sourceName;
+    cell.idLabel.text = currentSourceData.sourceId;
+    cell.categoryLable.text = currentSourceData.sourceCategory;
+    cell.urlLabel.text = currentSourceData.sourceURL;
+    cell.languageLabel.text = currentSourceData.sourcelanguage;
+    cell.descriptionTextView.text = currentSourceData.sourceDescription;
     
     return cell;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *rowValue = self.tableData[indexPath.row];
+    NSString *rowValue = self.sourcesArray[indexPath.row];
     NSString *message = [[NSString alloc] initWithFormat:@"Selected row: %@", rowValue];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Row selected!" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
@@ -120,6 +84,76 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+- (void) retrieveData {
+    // REST API endpoint
+    NSString *sourcesURL = @"https://newsapi.org/v1/sources?language=en";
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:sourcesURL]];
+    
+    NSURLSessionDataTask *task = [[self getURLSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        // my code
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            // if there is no data received
+            if (!data) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!" message:@"There is no data. Server is down or no wifi/network connection." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                
+                [alert show];
+                return;
+            }
+            
+            // json parsing from endpoint
+            NSError *jsonError;
+            self.json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+            
+            self.sourcesArray = [[NSMutableArray alloc] init];
+            
+            NSMutableArray *arr = [self.json valueForKey:@"sources"];
+            
+            for (int i = 0; i < [arr count]; i++) {
+                NSString *sId = [[arr objectAtIndex:i] objectForKey:@"id"];
+                NSString *sName = [[arr objectAtIndex:i] objectForKey:@"name"];
+                NSString *sDescription = [[arr objectAtIndex:i] objectForKey:@"description"];
+                NSString *sURL = [[arr objectAtIndex:i] objectForKey:@"url"];
+                NSString *sCategory = [[arr objectAtIndex:i] objectForKey:@"category"];
+                NSString *sLanguage = [[arr objectAtIndex:i] objectForKey:@"language"];
+                NSString *sCountry = [[arr objectAtIndex:i] objectForKey:@"country"];
+                
+                SourcesData *sourceData = [[SourcesData alloc] initWithId:sId andName:sName andDesciption:sDescription andURL:sURL andCategory:sCategory andLanguage:sLanguage andCountry:sCountry];
+                
+                [self.sourcesArray addObject:sourceData];
+            }
+            
+            [self.mainTableView reloadData];
+            
+            /*
+            if (self.sources) {
+                // NSLog(@"Data: %@", self.tableDataDic);
+                for (id item in [self.sources valueForKey:@"sources"]) {
+                    NSLog(@"Id: %@", [item valueForKey:@"id"]);
+                    NSLog(@"Name: %@", [item valueForKey:@"name"]);
+                    NSLog(@"Url: %@", [item valueForKey:@"url"]);
+                }
+            }
+            */
+        });
+    }];
+    [task resume];
+}
+
+- (NSURLSession*) getURLSession {
+    static NSURLSession *session = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        session = [NSURLSession sessionWithConfiguration:configuration];
+    });
+    return session;
+}
+
 
 /*
 // Override to support conditional editing of the table view.

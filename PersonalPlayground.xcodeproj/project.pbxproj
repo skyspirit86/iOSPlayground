@@ -19,6 +19,7 @@
 		330A352F1EE4C3EB0020011A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330A352E1EE4C3EB0020011A /* CoreLocation.framework */; };
 		330A35311EE4C3F20020011A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330A35301EE4C3F20020011A /* MapKit.framework */; };
 		330A35341EE5D2600020011A /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330A35331EE5D2600020011A /* MyTableViewController.m */; };
+		33A992F01EEDCB1D00276FA4 /* SourcesData.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A992EF1EEDCB1D00276FA4 /* SourcesData.m */; };
 		33EE5C671EE9C31600DC084C /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EE5C661EE9C31600DC084C /* CustomTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,8 @@
 		330A35301EE4C3F20020011A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		330A35321EE5D2600020011A /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
 		330A35331EE5D2600020011A /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
+		33A992EE1EEDCB1D00276FA4 /* SourcesData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourcesData.h; sourceTree = "<group>"; };
+		33A992EF1EEDCB1D00276FA4 /* SourcesData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourcesData.m; sourceTree = "<group>"; };
 		33EE5C651EE9C31600DC084C /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		33EE5C661EE9C31600DC084C /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +120,9 @@
 		330A34F61EE4A78E0020011A /* PersonalPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				33A992F21EEDCB6700276FA4 /* View */,
+				33A992F11EEDCB5800276FA4 /* Controller */,
+				33EE5C6B1EEC023E00DC084C /* Model */,
 				330A34FA1EE4A78E0020011A /* AppDelegate.h */,
 				330A34FB1EE4A78E0020011A /* AppDelegate.m */,
 				330A34FD1EE4A78E0020011A /* ViewController.h */,
@@ -169,6 +175,29 @@
 				330A352E1EE4C3EB0020011A /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		33A992F11EEDCB5800276FA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		33A992F21EEDCB6700276FA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		33EE5C6B1EEC023E00DC084C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				33A992EE1EEDCB1D00276FA4 /* SourcesData.h */,
+				33A992EF1EEDCB1D00276FA4 /* SourcesData.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33A992F01EEDCB1D00276FA4 /* SourcesData.m in Sources */,
 				330A34FF1EE4A78E0020011A /* ViewController.m in Sources */,
 				330A35341EE5D2600020011A /* MyTableViewController.m in Sources */,
 				33EE5C671EE9C31600DC084C /* CustomTableViewCell.m in Sources */,

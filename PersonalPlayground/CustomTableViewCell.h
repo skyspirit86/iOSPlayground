@@ -10,10 +10,10 @@
 
 @interface CustomTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *lastNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *emailLabel;
 @property (strong, nonatomic) IBOutlet UILabel *idLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *profileImage;
-
+@property (strong, nonatomic) IBOutlet UILabel *categoryLable;
+@property (strong, nonatomic) IBOutlet UILabel *urlLabel;
+@property (strong, nonatomic) IBOutlet UILabel *languageLabel;
+@property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 @end

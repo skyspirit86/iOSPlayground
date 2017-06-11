@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomTableViewCell.h"
+#import "SourcesData.h"
 
 @interface MyTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, copy) NSArray *tableData;
+@property (nonatomic, strong) NSMutableArray *json;
+@property (nonatomic, strong) NSMutableArray *sourcesArray;
+@property (strong, nonatomic) IBOutlet UITableView *mainTableView;
+
+#pragma mark - Methods 
+
+- (void) retrieveData;
+- (NSURLSession*) getURLSession;
 
 @end
