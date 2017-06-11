@@ -14,6 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *categoryLable;
 @property (strong, nonatomic) IBOutlet UILabel *urlLabel;
 @property (strong, nonatomic) IBOutlet UILabel *languageLabel;
-@property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @end

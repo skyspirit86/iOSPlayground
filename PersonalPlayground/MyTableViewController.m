@@ -69,13 +69,17 @@
     cell.categoryLable.text = currentSourceData.sourceCategory;
     cell.urlLabel.text = currentSourceData.sourceURL;
     cell.languageLabel.text = currentSourceData.sourcelanguage;
-    cell.descriptionTextView.text = currentSourceData.sourceDescription;
+    cell.descriptionLabel.text = currentSourceData.sourceDescription;
+    
+    // add detail button 
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *rowValue = self.sourcesArray[indexPath.row];
+    SourcesData *currentSourceData = [self.sourcesArray objectAtIndex:indexPath.row];
+    NSString *rowValue = currentSourceData.sourceURL;
     NSString *message = [[NSString alloc] initWithFormat:@"Selected row: %@", rowValue];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Row selected!" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
